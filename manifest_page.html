@@ -1,0 +1,118 @@
+<html>
+
+    <head>
+        <style>
+            body
+            {
+                background-color: rgb(212, 209, 165);
+                overflow: hidden;
+            }
+
+            .interact-img
+            {
+                width: 10vw;
+                transition: opacity .2s;
+
+                margin: 3vmin;
+            }
+            .interact-img:hover
+            {
+                opacity: .08;
+            }
+
+            #main-text
+            {
+                z-index: 5;
+                transition: all .2s;
+
+                margin: 0;
+
+                width: 100%;
+                height: 100%;
+                text-align: center;
+
+                color: rgb(230, 230, 230);
+
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+
+                background-color: rgba(37, 37, 37, 0.787);
+
+                pointer-events: none;
+            }
+
+            #main-text-text
+            {
+                font-weight: lighter;
+                font-size: 3vw;
+
+            
+                margin: 10vmin;
+
+                margin-top: 40vh;
+
+            }
+
+            #swiggle
+            {
+                font-size: 4vmin;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id = 'main-text'> 
+            <p id ='main-text-text'></p> 
+            <p id = 'swiggle'>____________</p>
+        </div>
+
+        <script>
+
+            function createThingy(name, left, top, text)
+            {
+                let width = 20;
+
+                let imageElement = document.body.appendChild(document.createElement('img'));
+                imageElement.id = name + '-img';
+                imageElement.className = 'interact-img';
+                imageElement.src = './footage/' + name + '.png';
+
+                imageElement.style.width = width + 'vw';
+                imageElement.style.left = left + 'vw';
+                imageElement.style.top = top + 'vh';
+
+                let mainTextText = document.getElementById('main-text-text');
+                let mainText = document.getElementById('main-text');
+
+                imageElement.addEventListener('mouseover', () => {
+                    mainTextText.innerHTML = text;
+                    mainText.style.opacity = 1;
+                });
+
+                imageElement.addEventListener('mouseleave', () => {
+                    mainText.style.opacity = 0;
+                });
+            }
+
+            // createThingy('headshot', 70, 30, '');
+
+            createThingy('own-world', 30, 50, 'Om houvast te hebben en de wereld om je heen te begrijpen moet je jezelf verblinden. Een perspectief innemen polariseert en maakt blind.');
+
+            createThingy('tech', 50, 80, 'Wij forceren onze eigen evolutie door middel van technologie.');
+
+            createThingy('darkness', 10, 20, 'Duistere gedachten hebben is een natuurlijk deel van mens zijn. Accepteer ze en geef ze een plek zonder daar andere mensen mee te benadelen.');
+
+            createThingy('rithm', 50, 10, 'Creativiteit ontstaat wanneer menselijke chaos in ritme wordt gezet door structuur vormende limitaties.')
+
+            createThingy('moving_balances', 5, 80, 'Op ieder niveau valt de wereld te kwantificeren als schommelende waardes tussen tegen polen.')
+
+            createThingy('perspectives', 0, 0, 'Het leven is absurd, dit blijkt uit de eindeloos mogelijke perspectieven waarmee het bekeken kan worden.');
+        </script>
+        
+    </body>
+
+</html>
