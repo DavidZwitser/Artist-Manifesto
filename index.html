@@ -118,24 +118,26 @@
 
         <script>
 
+            let counter = 1;
+
             function createThingy(name, text, subtext)
             {
                 let width = 8;
+                let countVal = counter ++;
 
                 let imgContainer = document.getElementById('img-container');
 
                 let imageElement = imgContainer.appendChild(document.createElement('p'));
                 imageElement.id = name + '-img';
                 imageElement.className = 'interact-img';
-                // imageElement.src = './footage/' + name + '.png';
-                imageElement.innerHTML = text;
+                imageElement.innerHTML = countVal + ', ' + text;
 
                 let mainTextText = document.getElementById('main-text-text');
                 let mainTextSubText = document.getElementById('main-text-subtext');
                 let mainText = document.getElementById('main-text');
 
                 imageElement.addEventListener('mouseover', () => {
-                    mainTextText.innerHTML = text;
+                    mainTextText.innerHTML = countVal + '. ' + text;
                     mainTextSubText.innerHTML = subtext;
                     mainText.style.opacity = 1;
                 });
