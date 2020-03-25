@@ -3,19 +3,30 @@
     <head>
 
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 
         <style>
             body
             {
                 background-color: rgb(255, 255, 255);
                 overflow: hidden;
+
+                font-family: 'Quicksand', sans-serif;
             }
 
             #title
             {
                 margin: 4vmin;
                 font-size: 8vmin;
+                font-family: 'Playfair Display', serif;
                 font-weight: lighter;
+
+                font-style: italic;
+
             }
 
             #img-container
@@ -56,6 +67,9 @@
 
                 width: 100%;
                 height: 100%;
+
+                border-width: 0;
+                border-style: none;
                 text-align: center;
 
                 color: rgb(230, 230, 230);
@@ -65,29 +79,26 @@
                 top: 0;
                 opacity: 0;
 
-                background-color: rgba(37, 37, 37, 0.787);
+                background-color: rgb(37, 37, 37);
 
                 pointer-events: none;
 
-                border-width: .1vmin;
-                border-style: solid;
             }
             
             #main-text-text
             {
                 font-weight: lighter;
-                font-size: 2.5vmin;
+                font-size: 3.5vmin;
             
-                margin: 40vh 15vmin 0vmin 15vmin;
+                margin: 30vh 15vmin 0vmin 15vmin;
 
                 font-family: 'Playfair Display', serif;
-
             }
 
             #main-text-subtext
             {
                 /* width: 40vw; */
-                margin: 10vh 30vw 0vmin 30vw;
+                margin: 0 25vw 0vmin 25vw;
                 font-size: 1.5vmin;
             }
         </style>
@@ -101,7 +112,12 @@
 
         <div id = 'main-text'> 
             <p id ='main-text-text'></p> 
-            <p>~David Zwitser</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <hr id = 'quote-author'>
             <p id = 'main-text-subtext'></p>
         </div>
 
