@@ -1,6 +1,9 @@
 <html>
 
     <head>
+
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
         <style>
             body
             {
@@ -8,15 +11,39 @@
                 overflow: hidden;
             }
 
+            #title
+            {
+                margin: 4vmin;
+                font-size: 8vmin;
+                font-weight: lighter;
+            }
+
+            #img-container
+            {
+                /* width: 100vmin; */
+
+                align-content: center;
+            }
+
             .interact-img
             {
                 transition: opacity .2s;
 
-                margin: 10vmin;
+                display: inline-flex;
+
+                font-size: 1.8vmin;
+
+                margin: 10vmin 5vmin 0vmin 5vmin;
+
+                width: 20vmin;
+                height: 20vmin;
+
+                font-family: 'Playfair Display', serif;
+
             }
             .interact-img:hover
             {
-                opacity: .08;
+                opacity: .2;
             }
 
             #main-text
@@ -25,6 +52,7 @@
                 transition: all .2s;
 
                 margin: 0;
+                padding: 0;
 
                 width: 100%;
                 height: 100%;
@@ -35,80 +63,108 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                opacity: 0;
+                /* opacity: 0; */
 
                 background-color: rgba(37, 37, 37, 0.787);
 
                 pointer-events: none;
-            }
 
+                border-width: .1vmin;
+                border-style: solid;
+            }
+            
             #main-text-text
             {
                 font-weight: lighter;
-                font-size: 2vmin;
-
+                font-size: 2.5vmin;
             
-                margin: 10vmin;
+                margin: 40vh 15vmin 0vmin 15vmin;
 
-                margin-top: 40vh;
+                font-family: 'Playfair Display', serif;
 
             }
 
-            #swiggle
+            #main-text-subtext
             {
-                font-size: 4vmin;
+                /* width: 40vw; */
+                margin: 10vh 30vw 0vmin 30vw;
+                font-size: 1.5vmin;
             }
         </style>
 
     </head>
 
     <body>
+        <h1 id = 'title'>David's Manifesto</h1>
+
+        <div id = 'img-container'></div>
 
         <div id = 'main-text'> 
             <p id ='main-text-text'></p> 
+            <p>~David Zwitser</p>
+            <p id = 'main-text-subtext'></p>
         </div>
 
         <script>
 
-            function createThingy(name, left, top, text)
+            function createThingy(name, text, subtext)
             {
                 let width = 8;
 
-                let imageElement = document.body.appendChild(document.createElement('img'));
+                let imgContainer = document.getElementById('img-container');
+
+                let imageElement = imgContainer.appendChild(document.createElement('p'));
                 imageElement.id = name + '-img';
                 imageElement.className = 'interact-img';
-                imageElement.src = './footage/' + name + '.png';
-
-                imageElement.style.width = width + 'vw';
-                imageElement.style.left = left + 'vw';
-                imageElement.style.top = top + 'vh';
+                // imageElement.src = './footage/' + name + '.png';
+                imageElement.innerHTML = text;
 
                 let mainTextText = document.getElementById('main-text-text');
+                let mainTextSubText = document.getElementById('main-text-subtext');
                 let mainText = document.getElementById('main-text');
 
                 imageElement.addEventListener('mouseover', () => {
                     mainTextText.innerHTML = text;
+                    mainTextSubText.innerHTML = subtext;
                     mainText.style.opacity = 1;
                 });
+                mainTextText.innerHTML = text;
+                mainTextSubText.innerHTML = subtext;
 
                 imageElement.addEventListener('mouseleave', () => {
                     mainText.style.opacity = 0;
                 });
             }
 
-            // createThingy('headshot', 70, 30, '');
+            createThingy('own-world',
+                'Om houvast te hebben moet je jezelf verblinden. Een perspectief innemen polariseert en maakt blind.',
+                'Al bekijk je de wereld op een materialistisch, spiritueel of op quantum niveau, je sluit altijd perspectieven uit. Keuzes of meningen vanuit een perspectief kunnen vanuit een ander perspectief absurd lijken. Het maakt niet uit wat je doet, je bent altijd blind en bevooroordeeld. Het beste wat je kan doen is zo veel mogelijk perspectieven leren kennen en begrijpen.'
+            );
 
-            createThingy('own-world', 30, 50, 'Om houvast te hebben en de wereld om je heen te begrijpen moet je jezelf verblinden. Een perspectief innemen polariseert en maakt blind.');
+            createThingy('tech',
+                'Wij forceren onze eigen evolutie door middel van technologie.',
+                'Evolutie heeft ons de mogelijkheid gegeven om externe tools ons eigen te maken'
+            );
 
-            createThingy('tech', 50, 80, 'Wij forceren onze eigen evolutie door middel van technologie.');
+            createThingy('darkness',
+                'Duistere gedachten hebben is een natuurlijk deel van mens zijn. Accepteer ze en geef ze een plek zonder daar andere mensen mee te benadelen.',
+                'Het is de natuur om als mens maatschappelijk slechte gedachten te hebben. Wij blijven van oorsprong dieren, evolutie is niet snel genoeg om met onze maatschappelijke groei mee te kunnen. Daarentegen zijn deze gedachten deel van jou als persoon. Sluit je ze op of onderdruk je ze, komen ze er langzaam op giftige manieren uit druipen. Ervaar ze daarom bewust en geef ze een plek bij jou als mens, dat zou je rust en balans geven.'
+            );
 
-            createThingy('darkness', 10, 20, 'Duistere gedachten hebben is een natuurlijk deel van mens zijn. Accepteer ze en geef ze een plek zonder daar andere mensen mee te benadelen.');
+            createThingy('rithm',
+                'Kunst ontstaat wanneer menselijke chaos in ritme wordt gezet door structuur vormende restricties.',
+                'Creativiteit is de intuïtieve chaos die zich in mensen afspeelt. Het wat het probeert te uiten wordt interpreteerbaar door de restricties die eroverheen gezet worden zoals het medium of de beweging waarbinnen je werkt. Laat je het helemaal vrij, wordt het gekte genoemd. Leg je er teveel regels op, verliest het zijn authenticiteit.'
+            );
 
-            createThingy('rithm', 50, 10, 'Creativiteit ontstaat wanneer menselijke chaos in ritme wordt gezet door structuur vormende limitaties.')
+            createThingy('moving_balances',
+                'Het leven is absurd, dit blijkt uit de eindeloos mogelijke perspectieven waarmee het bekeken kan worden.',
+                'Het leven biedt zoveel mogelijke perspectieven, het overgrootste deel van deze perspectieven kunnen wij als mensen niet eens bedenken. Ieder perspectief biedt weer tegen argumenten tegen de tegenargumenten enz. Om deze reden valt er nooit punt te maken over wat het daadwerkelijk is en is het per definitie absurd.'
+            );
 
-            createThingy('moving_balances', 5, 80, 'Op ieder niveau valt de wereld te kwantificeren als schommelende waardes tussen tegen polen.')
-
-            createThingy('perspectives', 0, 0, 'Het leven is absurd, dit blijkt uit de eindeloos mogelijke perspectieven waarmee het bekeken kan worden.');
+            createThingy('perspectives',
+                'Jij bent een mens, jij bent een product van wat een mens is, jij bent een product van jouw menselijk lichaam.',
+                'Wij zijn en blijven een product van evolutie, het systeem dat zo dominant geworden op deze aardbol door haar effectiviteit. Jouw lichaam is hier een product van, net zoals jouw hersenen en jouw gedachten. Alles wat je doet, ziet en denkt is een product van dit evolutionair biologisch wezen, bewogen door evulutionaire drangen, gemanipuleerd door evolutionaire doelen.'
+            );
         </script>
         
     </body>
