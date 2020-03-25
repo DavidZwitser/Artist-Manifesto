@@ -4,16 +4,15 @@
         <style>
             body
             {
-                background-color: rgb(212, 209, 165);
+                background-color: rgb(255, 255, 255);
                 overflow: hidden;
             }
 
             .interact-img
             {
-                width: 10vw;
                 transition: opacity .2s;
 
-                margin: 3vmin;
+                margin: 10vmin;
             }
             .interact-img:hover
             {
@@ -46,7 +45,7 @@
             #main-text-text
             {
                 font-weight: lighter;
-                font-size: 3vw;
+                font-size: 2vmin;
 
             
                 margin: 10vmin;
@@ -67,14 +66,13 @@
 
         <div id = 'main-text'> 
             <p id ='main-text-text'></p> 
-            <p id = 'swiggle'>____________</p>
         </div>
 
         <script>
 
             function createThingy(name, left, top, text)
             {
-                let width = 20;
+                let width = 8;
 
                 let imageElement = document.body.appendChild(document.createElement('img'));
                 imageElement.id = name + '-img';
