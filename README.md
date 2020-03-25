@@ -1,0 +1,2 @@
+# Artist-Manifesto
+Artist Manifesto
